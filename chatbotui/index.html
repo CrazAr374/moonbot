@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpaceBot - Advanced Lunar Explorer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  </head>
+  <body>
+    <div class="space-background"></div>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+      <div class="auth-content">
+        <h2>Mission Control Access</h2>
+        <input type="text" placeholder="Agent ID" id="agentId" />
+        <input type="password" placeholder="Access Code" id="accessCode" />
+        <button id="loginBtn">Initialize Connection</button>
+      </div>
+    </div>
+
+    <div class="theme-toggle">
+      <i class="fas fa-moon"></i>
+    </div>
+
+    <div class="hamburger-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="menu-overlay"></div>
+
+    <div class="container">
+      <div class="sidebar">
+        <div class="profile-section">
+          <div class="agent-avatar">
+            <img src="Logo_type_image.jpeg" alt="Agent Avatar" />
+            <span class="status-indicator online"></span>
+          </div>
+          <h3>Mission Specialist</h3>
+          <p class="agent-id">ID: Atharva</p>
+        </div>
+
+        <div class="mission-status">
+          <h4>Moon Mission Status</h4>
+          <div class="status-indicators">
+            <div class="indicator">
+              <span class="dot green"></span>
+              Craters Mapped
+            </div>
+            <div class="indicator">
+              <span class="dot yellow"></span>
+              Oxygen Level
+            </div>
+            <div class="indicator">
+              <span class="dot blue"></span>
+              Safe Landing Zones
+            </div>
+          </div>
+        </div>
+
+        <h2>🪐 MoonBot</h2>
+        <ul class="scientists-list">
+          <li data-topic="mission-data">
+            <i class="fas fa-satellite"></i>
+            Mission Data
+            <span class="notification-badge">3</span>
+          </li>
+          <li data-topic="distance-calc">🪐 Distance Calculation</li>
+          <li data-topic="crater-depth">🌑 Crater Depth</li>
+          <li data-topic="rover-route">🚀 Rover Routes</li>
+          <li data-topic="helium-3">💎 Helium-3 Research</li>
+          <li data-topic="martian-soil">🌋 Martian Soil Transport</li>
+          <li data-topic="inter-comm">📡 Inter-Mission Communication</li>
+          <li data-topic="rover-energy">🔋 Rover Efficiency</li>
+        </ul>
+
+        <div class="mission-timeline">
+          <h4>Mission Timeline</h4>
+          <div class="timeline-events">
+            <div class="event">
+              <span class="time">08:00</span>
+              <span class="description">Rover Deployment</span>
+            </div>
+            <div class="event active">
+              <span class="time">10:30</span>
+              <span class="description">Sample Collection</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chat-section">
+        <header class="chat-header">
+          <div class="chat-controls">
+            <button class="voice-btn">
+              <i class="fas fa-microphone"></i>
+            </button>
+            <h3>🌕 Chat with MoonBot</h3>
+            <button class="model-viewer-btn">
+              <i class="fas fa-cube"></i>
+            </button>
+          </div>
+          <div class="connection-status">
+            <span class="ping">Ping: 243ms</span>
+            <span class="signal-strength">
+              <i class="fas fa-signal"></i>
+            </span>
+          </div>
+        </header>
+        <div class="chat-box">
+          <div class="message bot">
+            <div class="message-header">
+              <span class="bot-name">MoonBot</span>
+              <span class="timestamp">Now</span>
+            </div>
+            Welcome to MoonBot! Select a topic from the left to explore Moon
+            missions.
+            <div class="message-footer">
+              <button class="translate-btn">
+                <i class="fas fa-language"></i>
+              </button>
+              <button class="read-aloud-btn">
+                <i class="fas fa-volume-up"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input">
+          <button class="attachment-btn">
+            <i class="fas fa-paperclip"></i>
+          </button>
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Type your message here..."
+          />
+          <button class="emoji-btn">
+            <i class="fas fa-smile"></i>
+          </button>
+          <button id="sendBtn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="model-viewer" id="modelViewer">
+        <div class="viewer-header">
+          <h3>Mission Assets</h3>
+          <button class="close-viewer">×</button>
+        </div>
+        <div class="model-container"></div>
+        <div class="model-controls">
+          <button class="rotate-btn">
+            <i class="fas fa-sync"></i>
+          </button>
+          <button class="zoom-in-btn">
+            <i class="fas fa-search-plus"></i>
+          </button>
+          <button class="zoom-out-btn">
+            <i class="fas fa-search-minus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="notification-panel">
+      <div class="notification">
+        <i class="fas fa-bell"></i>
+        <span>New mission data available</span>
+      </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+      <div class="loader"></div>
+      <p>Establishing Connection...</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
